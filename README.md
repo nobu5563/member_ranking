@@ -1,1 +1,3 @@
-# member_ranking
+# member_ranking  
+
+あるグループの自分が好きなメンバーランキング
