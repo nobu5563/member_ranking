@@ -28,7 +28,7 @@ def main(group_name):
 
     name = get_artist(group_name)
 
-    result = get_rank(name=name)
+    result = get_rank(group_name=group_name, name=name)
 
     print("\n")
     print("★☆★☆★☆ 結果発表 ☆★☆★☆★\n")
