@@ -1,10 +1,16 @@
 # member_ranking  
 
-あるグループの自分が好きなメンバーランキング  
+あるK-POPグループの中で、自分の好きなメンバーランキングを調べる
 
 ---
+**使い方**
 
-**構成**
+`python main.py [アーティスト名(小文字)]`
 
-- rank.py：ランキングを調べられるファイル  
-- ＿.csv：グループのメンバーが書かれているファイル
+
+**グループ一覧(順次追加予定)**
+- aespa
+- BLACKPINK
+- fromis_9
+- SNSD (Girls' Generation)
+- TWICE
