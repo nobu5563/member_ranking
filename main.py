@@ -28,7 +28,6 @@ def main(group_name):
 
     name = get_artist(group_name)
 
-
     result = get_rank(name=name)
 
     print("\n")
@@ -37,9 +36,11 @@ def main(group_name):
     for i in range(0, len(result)):
         print(f"{i+1}位:{result[i][0]}")
     print("\n")
+
     print('ランキング終了')
 
+
+
 if __name__ == "__main__":
-    print("グループ名を入れてください")
     args = get_parse()
     main(group_name=args.group_name)
