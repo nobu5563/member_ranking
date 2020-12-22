@@ -8,6 +8,11 @@ import matplotlib.pyplot as plt
 def show_images(group_name):
 
     path = f'image/{group_name}/all.png'
+    if os.path.isfile(path):
+        img = Image.open(path)
+        img.show()
+        return None
+
     files = glob.glob(f'image/{group_name}/*.png')
 
     im_list = []
@@ -20,7 +25,7 @@ def show_images(group_name):
 
 
 def concat_image(im_list, path, group_name):
-    canvas = Image.new('RGB', (334*4, 500))
+    canvas = Image.new('RGB', (334*4, 500)) # 画像を並べるための領域を作成 (横, 縦)
     size = 0
     for i in range(len(im_list)):
         canvas.paste(im_list[i], (size, 0))
