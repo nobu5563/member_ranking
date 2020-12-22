@@ -1,18 +1,19 @@
 import argparse
 from argparse import RawDescriptionHelpFormatter
 import numpy as np
-import csv
 
+from data_prepare import get_artist
 
 
 def get_parse():
 
     help_desc = '''アーティストのランキングを作成
-    以下のいずれかを小文字で入力してください
-    - BLACKPINK
+    以下のいずれかを入力してください
+    - blackpink
     - fromis_9
     - snsn
     - twice
+    - aespa
     '''
 
     parser = argparse.ArgumentParser(description=help_desc,
@@ -24,12 +25,8 @@ def get_parse():
 
 
 def main(group_name):
-    name = []
 
-    with open("data/{}.csv".format(group_name), "r", encoding="utf_8_sig") as f:
-        r = csv.reader(f, delimiter="\n")
-        for row in r:
-            name.extend(row)
+    name = get_artist(group_name)
 
     score = np.zeros(50)
     already = np.zeros((50, 50))
@@ -57,10 +54,12 @@ def main(group_name):
     result = sorted(dic.items(), key=lambda x:x[1], reverse=True)
 
     print("\n")
-    print("★☆★☆★☆ 結果発表 ☆★☆★☆★")
+    print("★☆★☆★☆ 結果発表 ☆★☆★☆★\n")
 
     for i in range(0, len(result)):
-        print("{}位:{}".format(i+1, result[i]))
+        print(f"{i+1}位:{result[i][0]}")
+    print("\n")
+    print('ランキング終了')
 
 if __name__ == "__main__":
     print("グループ名を入れてください")
