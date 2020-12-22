@@ -8,11 +8,12 @@ from data_prepare import get_artist
 def get_parse():
 
     help_desc = '''アーティストのランキングを作成
-    以下のいずれかを小文字で入力してください
-    - BLACKPINK
+    以下のいずれかを入力してください
+    - blackpink
     - fromis_9
     - snsn
     - twice
+    - aespa
     '''
 
     parser = argparse.ArgumentParser(description=help_desc,
