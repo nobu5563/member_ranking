@@ -3,6 +3,15 @@ import numpy as np
 
 
 def get_rank(name):
+    """
+    ランキングを作成
+
+    Args:
+        name (str): group name
+
+    Returns:
+        tuple: (name, score)
+    """
     score = np.zeros(50)
     already = np.zeros((50, 50))
 
