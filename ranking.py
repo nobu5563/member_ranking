@@ -3,27 +3,21 @@ import numpy as np
 from images import show_images
 
 
-def get_rank(group_name, name):
-    """
-    ランキングを作成
+def get_rank(group_name, name_list):
 
-    Args:
-        name (str): group name
-
-    Returns:
-        tuple: (name, score)
-    """
     score = np.zeros(50)
     already = np.zeros((50, 50))
 
     print("---メンバーランキング---")
 
-    for i in range(len(name)):
-        for j in range(len(name)):
-            if (name[i] != name[j]) and already[i][j] == 0:
+    show_images(group_name=group_name)
+
+
+    for i in range(len(name_list)):
+        for j in range(len(name_list)):
+            if (name_list[i] != name_list[j]) and already[i][j] == 0:
                 print("好きなメンバーの番号を入力してください")
-                show_images(group_name=group_name, name_1=name[i], name_2=name[j])
-                like = input(f"1:{name[i]} 2:{name[j]} ")
+                like = input(f"1:{name_list[i]} 2:{name_list[j]} ")
                 if like == "1":
                     score[i] += 1
                 elif like == "2":
@@ -35,7 +29,7 @@ def get_rank(group_name, name):
                 already[i][j] = 1
                 already[j][i] = 1
 
-    dic = dict(zip(name, score))
+    dic = dict(zip(name_list, score))
     result = sorted(dic.items(), key=lambda x:x[1], reverse=True)
 
     return result
