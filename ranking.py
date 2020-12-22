@@ -1,8 +1,9 @@
 import numpy as np
 
+from images import show_images
 
 
-def get_rank(name):
+def get_rank(group_name, name):
     """
     ランキングを作成
 
@@ -21,6 +22,7 @@ def get_rank(name):
         for j in range(len(name)):
             if (name[i] != name[j]) and already[i][j] == 0:
                 print("好きなメンバーの番号を入力してください")
+                show_images(group_name=group_name, name_1=name[i], name_2=name[j])
                 like = input(f"1:{name[i]} 2:{name[j]} ")
                 if like == "1":
                     score[i] += 1
