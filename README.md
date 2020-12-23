@@ -14,3 +14,6 @@
 - fromis_9
 - SNSD (Girls' Generation)
 - TWICE
+
+**今後実装予定**
+- 入力のリトライ
