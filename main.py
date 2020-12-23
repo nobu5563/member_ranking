@@ -14,6 +14,7 @@ def get_parse():
     - snsn
     - twice
     - aespa
+    - izone
     '''
 
     parser = argparse.ArgumentParser(description=help_desc,
@@ -28,7 +29,7 @@ def main(group_name):
 
     name = get_artist(group_name)
 
-    result = get_rank(group_name=group_name, name=name)
+    result = get_rank(group_name=group_name, name_list=name)
 
     print("\n")
     print("★☆★☆★☆ 結果発表 ☆★☆★☆★\n")
