@@ -12,6 +12,7 @@
 - aespa
 - BLACKPINK
 - fromis_9
+- izone
 - SNSD (Girls' Generation)
 - TWICE
 
