@@ -32,8 +32,10 @@ def show_images(group_name):
     for i in range(len(member_title)):
         if len(member_title) <= 5:
             plt.subplot(1, len(member_title), i+1)
-        else:
+        elif len(member_title) == 9:
             plt.subplot(3, 3, i+1)
+        else:
+            plt.subplot(3, 4, i+1)
         plt.title(member_title[i])
         plt.axis('off')
         plt.subplots_adjust(wspace=0, hspace=0.2)
