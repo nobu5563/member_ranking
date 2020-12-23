@@ -1,4 +1,5 @@
 import os
+import re
 from PIL import Image
 import glob
 import matplotlib.pyplot as plt
@@ -15,12 +16,31 @@ def show_images(group_name):
 
     files = glob.glob(f'image/{group_name}/*.png')
 
+    member_title = []
+
+    for file_name in files:
+        member_name = file_name[7+len(group_name):-4]
+        member_title.append(member_name)
+
     im_list = []
 
     for file_name in files:
         img = Image.open(file_name)
         im_list.append(img)
-    concat_image(im_list, path, group_name)
+
+    fig = plt.figure()
+
+    for i in range(len(member_title)):
+        plt.subplot(1, 4, i+1)
+        plt.title(member_title[i])
+        plt.axis('off')
+        plt.imshow(im_list[i])
+    plt.pause(.01)
+    # if os.path.isfile(path) is False:
+    #     print('(画像の保存完了)')
+    #     fig.savefig(f'image/{group_name}/all.png')
+
+    # concat_image(im_list, path, group_name)
 
 
 
@@ -33,10 +53,11 @@ def concat_image(im_list, path, group_name):
 
     canvas.show() # 画像を並べて表示
 
-    # 初回はその画像を保存
+    # 初回実行時、並べた画像を保存
     if os.path.isfile(path) is False:
-        # save_path = f'image/{group_name}'
+        print('(画像の保存完了)')
         canvas.save(f'image/{group_name}/all.png')
 
     # メンバーの名前も付けたい
     # concat_imageを一般化
+    # 機能を明確に分けるべき
